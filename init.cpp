@@ -8,8 +8,9 @@ int nScreenHeight = 40;
 float fPlayerX=8.0f;
 float fPlayerY = 8.0f;
 float fPlayerA = 0.0f;
-float fFOV = 3.14159/4.0;
+float fFOV = 3.14159/4.0; 
 float fDepth = 16.0f;
+
 int nMapWidth = 16;				// World Dimensions
 int nMapHeight = 16;
 
@@ -22,22 +23,22 @@ int main(){
     SetConsoleActiveScreenBuffer(hConsole);
     DWORD dwBytesWritten = 0;
     wstring map;
-    map += L"###############";
-    map += L"##...........##";
-    map += L"##...........##";
-    map += L"##...........##";
-    map += L"##...........##";
-    map += L"##...........##";
-    map += L"##...........##";
-    map += L"##...........##";
-    map += L"##...........##";
-    map += L"##...........##";
-    // map += L"##...........##";
-    // map += L"##...........##";
-    map += L"##...........##";
-    map += L"##...........##";
-    map += L"##...........##";
-    map += L"###############";
+    map += L"################";
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"#..............#";    
+    map += L"################";
 
     while(true){
         for (size_t x=0; x< nScreenWidth; x++){
@@ -63,7 +64,6 @@ int main(){
                         bHitWall = true;
                     }
                 }
-
             }
             int nCeiling = (float)(nScreenHeight/2.0) - nScreenHeight / ((float)fDistanceToWall);
             int nFloor = nScreenHeight - nCeiling;
@@ -71,6 +71,7 @@ int main(){
                 if(y< nCeiling){
                     screen[y* nScreenWidth + x] = ' ';
                 }else if(y>nCeiling && y <= nFloor){
+                    std::cout << "This is a text \n" ;
                     screen[y*nScreenWidth + x] = '#';
                 }else{
                     screen[y* nScreenWidth + x] = ' ';
